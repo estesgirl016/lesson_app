@@ -13,12 +13,8 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
 
-    <%= f.label :role %>
-    <%= f.check_box :role %>
-
     <%= f.label :teacher_id %>
-    <%= f.number_field :teacher_id %>
-
+    <%= f.number_field :teacher_id, placeholder: "What is your teacher\'s registration number?" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -45,7 +41,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class 'btn' %>
   </div>
 <% end %>
 

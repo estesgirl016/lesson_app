@@ -14,11 +14,8 @@
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 
-  <%= f.label :role %>
-  <%= f.check_box :role %>
-
   <%= f.label :teacher_id %>
-  <%= f.number_field :teacher_id %>
+  <%= f.number_field :teacher_id, placeholder: "What is your teacher\'s registration number?"  %>
 
   <div class="field">
     <%= f.label :password %>
@@ -32,10 +29,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: 'btn' %>
   </div>
 <% end %>
+<br>
 
 <%= render "devise/shared/links" %>

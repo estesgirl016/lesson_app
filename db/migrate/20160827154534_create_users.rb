@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.integer :age
-      t.boolean :role, null: false
+      t.boolean :role
       t.string :instrument
       t.string :status
       t.text :notes
