@@ -1,15 +1,21 @@
-<h3>Assignments For  </h3>
+<h3> <%= @user.first_name %>'s Assignments </h3>
 
   <% if @user.teacher? %>
     <%= link_to 'New Assignment', new_assignment_path(@lesson) %>
+  <% end %> 
+  <% if assignment.blank? %>
+    <p>This Student Currently Has No Assignments!</p> 
   <% end %>  
   <ul>
   <% @assignments.each do |assignment| %>
     <li>
+    <%= assignment.book %>
     <% if @user.teacher? %>
-    <%= link_to 'Edit Assignment', edit_assignment_path(assignment) %>
-    <%= link_to 'Delete Assignment', delete_assignment_path(assignment) %>
+      <%= link_to 'Edit Assignment', edit_assignment_path(assignment) %>
+      <%= link_to 'Delete Assignment', delete_assignment_path(assignment) %>
+    <% else %>
+      <i class="large material-icons">star</i> 
+      <%= link_to 'Practiced', practice_path(assignment) %>  
     <% end %>
     </li> 
   <% end %>
-  </ul>  

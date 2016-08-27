@@ -16,15 +16,16 @@ ActiveRecord::Schema.define(version: 20160827155030) do
   enable_extension "plpgsql"
 
   create_table "assignments", force: :cascade do |t|
-    t.string   "book",          null: false
+    t.string   "book",                      null: false
     t.string   "title"
     t.integer  "page"
     t.integer  "per_day"
     t.integer  "days_per_week"
+    t.integer  "played",        default: 0
     t.text     "notes"
     t.integer  "lesson_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id", using: :btree
   end
 

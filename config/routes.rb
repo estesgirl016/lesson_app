@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   #update 
   put 'assignments/:id', to: 'assignments#update'
   #practice
-  get 'lessons/:lesson_id/practice', to: 'assignments#practice', as: 'practice'
+  get 'practice/:id', to: 'assignments#practice', as: 'practice'
   #edit 
   get 'assignments/:id', to: 'assignments#edit', as: 'edit_assignment'
   #destroy 
