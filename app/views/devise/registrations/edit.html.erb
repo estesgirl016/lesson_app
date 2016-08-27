@@ -6,6 +6,19 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+
+    <%= f.label :role %>
+    <%= f.check_box :role %>
+
+    <%= f.label :teacher_id %>
+    <%= f.number_field :teacher_id %>
+
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
