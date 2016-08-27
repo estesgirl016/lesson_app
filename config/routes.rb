@@ -39,11 +39,11 @@ Rails.application.routes.draw do
   #create 
   post 'lessons/:lesson_id/assignments/new', to: 'assignments#create', as: 'lesson_assignments'
   #update 
-  put 'assignments/:id', to: 'assignments#update'
+  patch '/lesson/:lesson_id/assignments/:id', to: 'assignments#update', as: 'lesson_assignment'
   #practice
   get 'practice/:id', to: 'assignments#practice', as: 'practice'
   #edit 
-  get 'assignments/:id', to: 'assignments#edit', as: 'edit_assignment'
+  get '/lesson/:lesson_id/assignments/:id', to: 'assignments#edit', as: 'assignment'
   #destroy 
   delete 'assignments/:id', to: 'assignments#destroy', as: 'delete_assignment'
 

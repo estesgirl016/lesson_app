@@ -1,9 +1,10 @@
 class AssignmentsController < ApplicationController
-  before_action :lesson
+  before_action :user
   before_action :assignment, only: [:edit, :update, :destroy]
   def index
+    @lesson = Lesson.find(params[:lesson_id])
     @assignments = @lesson.assignments.all
-    @user = current_user
+    # @user = current_user
   end
 
   
@@ -20,22 +21,24 @@ class AssignmentsController < ApplicationController
   end
 
   def create
+    @lesson = Lesson.find(params[:lesson_id])
     @assignment = Assignment.new(assignment_params)
-    @assignment[:lesson_id] = params[:lesson_id]
+    @assignment.lesson_id = @lesson.id
       if @assignment.save
-        redirect_to assignment_index_path(@assignment)
+        redirect_to assignment_index_path(@lesson)
       else
         render :new
       end
   end
 
   def edit
-
+    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def update
+    @lesson = Lesson.find(params[:lesson_id])
     if @assignment.update(assignment_params)
-      redirect_to assignment_index_path(@assignment)
+      redirect_to assignment_index_path(@lesson, @assignment)
     else
       render :edit
     end
@@ -43,10 +46,14 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    redirect_to assignment_index_path(@assignment)
+    redirect_to assignment_index_path
   end
 
   private
+
+  def user
+    @user = current_user
+  end
 
   def assignment_params
     params.require(:assignment).permit(:book, :title, :page, :per_day, :days_per_week, :notes, :lesson_id)
