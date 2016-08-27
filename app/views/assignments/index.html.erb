@@ -1,4 +1,4 @@
-<h3>Assignments For  </h3>
+<h3> <%= @user.first_name %>'s Assignments </h3>
 
   <% if @user.teacher? %>
     <%= link_to 'New Assignment', new_assignment_path(@lesson) %>
