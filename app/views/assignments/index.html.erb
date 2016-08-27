@@ -4,26 +4,18 @@
     <%= link_to 'New Assignment', new_assignment_path(@lesson) %>
   <% end %> 
   <% if assignment.blank? %>
-    <p>This Student Currently Has No Links!</p> 
+    <p>This Student Currently Has No Assignments!</p> 
   <% end %>  
   <ul>
   <% @assignments.each do |assignment| %>
     <li>
+    <%= assignment.book %>
     <% if @user.teacher? %>
-      <%= assignment.book %>
       <%= link_to 'Edit Assignment', edit_assignment_path(assignment) %>
       <%= link_to 'Delete Assignment', delete_assignment_path(assignment) %>
+    <% else %>
+      <i class="large material-icons">star</i> 
+      <%= link_to 'Practiced', practice_path(assignment) %>  
     <% end %>
     </li> 
   <% end %>
-  </ul> 
-
-  <ul>
-  <% @assignments.each do |assignment| %>
-    <li>
-    <% if @user.student? %>
-      <%= assignment.book %> 
-      <i class="large material-icons">star</i> 
-      <%= link_to 'Practiced', practice_path(assignment) %>
-    <% end %> 
-  <% end %>  
