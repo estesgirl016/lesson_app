@@ -1,2 +1,9 @@
-<h1>Teachers#index</h1>
-<p>Find me in app/views/teachers/index.html.erb</p>
+<h1>My Students</h1>
+<% @students.each do |student| %>
+  <p><%= student.first_name %></p>
+  <p><%= student.last_name %></p>
+  <p><%= student.age %></p>
+  <p><%= student.instrument %></p>
+  <p><%= student.status %></p>
+  <p><%= student.notes %></p>
+<% end %>
