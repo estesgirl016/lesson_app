@@ -1,0 +1,11 @@
+/*
+ */
+
+@import "materialize/components/color";
+$primary-color: color("light-green", "darken-1") !default;
+
+@import 'materialize';
+
+input {
+  text-transform: capitalize;
+}
