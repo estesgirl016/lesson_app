@@ -9,7 +9,10 @@ class AssignmentsController < ApplicationController
   
 
   def practice
-
+    @assignment = Assignment.find(params[:id])
+    @assignment.played += 1
+    @assignment.save
+    redirect_to :back
   end
 
   def new
@@ -20,7 +23,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment[:lesson_id] = params[:lesson_id]
       if @assignment.save
-        redirect_to assignment_index_path(@lesson)
+        redirect_to assignment_index_path(@assignment)
       else
         render :new
       end
@@ -32,7 +35,7 @@ class AssignmentsController < ApplicationController
 
   def update
     if @assignment.update(assignment_params)
-      redirect_to assignment_index_path(@lesson)
+      redirect_to assignment_index_path(@assignment)
     else
       render :edit
     end
@@ -40,7 +43,7 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    redirect_to assignment_index_path(@lesson)
+    redirect_to assignment_index_path(@assignment)
   end
 
   private

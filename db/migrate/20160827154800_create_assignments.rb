@@ -6,6 +6,7 @@ class CreateAssignments < ActiveRecord::Migration[5.0]
       t.integer :page
       t.integer :per_day
       t.integer :days_per_week
+      t.integer :played, default: 0
       t.text :notes
       t.belongs_to :lesson
       t.timestamps
