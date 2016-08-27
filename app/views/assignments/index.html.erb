@@ -1,2 +1,14 @@
-<h1>Assignments#index</h1>
-<p>Find me in app/views/assignments/index.html.erb</p>
+<h3>Assignments For  </h3>
+
+  
+  <%= link_to 'New Assignment', new_assignment_path(@lesson) %>
+  <ul>
+  <% @assignments.each do |assignment| %>
+    <li>
+    <% if @user.teacher? %>
+    <%= link_to 'Edit Assignment', edit_assignment_path(assignment) %>
+    <%= link_to 'Delete Assignment', delete_assignment_path(assignment) %>
+    <% end %>
+    </li> 
+  <% end %>
+  </ul>  

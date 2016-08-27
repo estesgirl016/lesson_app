@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   #new 
   get 'lessons/:lesson_id/assignments/new', to: 'assignments#new', as: 'new_assignment'
   #create 
-  post 'lessons/:lesson_id/assignments/new', to: 'assignments#create'
+  post 'lessons/:lesson_id/assignments/new', to: 'assignments#create', as: 'lesson_assignments'
   #update 
   put 'assignments/:id', to: 'assignments#update'
   #practice
