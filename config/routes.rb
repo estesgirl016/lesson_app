@@ -19,11 +19,11 @@ Rails.application.routes.draw do
 
   # Lesson
   #index
-  get 'students/:student_id/lessons', to: 'lessons#index', as: 'lesson_index'
+  get 'students/:user_id/lessons', to: 'lessons#index', as: 'lesson_index'
   #new 
-  get 'students/:student_id/lessons/new', to: 'lessons#new', as: 'new_lesson'
+  get 'students/:user_id/lessons/new', to: 'lessons#new', as: 'new_lesson'
   #create
-  post 'students/:student_id/lessons/new', to: 'lessons#create'
+  post 'students/:user_id/lessons/new', to: 'lessons#create'
   #update
   put 'lessons/:id', to: 'lessons#udpate'
   #edit
