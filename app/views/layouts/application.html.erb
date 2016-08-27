@@ -14,16 +14,19 @@
 
   <body>
 
-  <% if current_user.teacher? %>
-  <% else %>
-  <% end %>
-
     <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a> <%= link_to 'Log Out', destroy_user_session_path %> </a></li>
-        <li><a> <%= link_to 'My Students', student_list(current_user) %> </a></li>
+      <% if user_signed_in? %>
+        <li><a> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </a></li>
+        <% if current_user.teacher? %>
+        <li><a> <%= link_to 'My Students', student_list_path(current_user) %> </a></li>
+        <% end %>
+   	  <% else %>
+   	  	<%= link_to 'Sign In', new_user_session_path %>
+   	  <% end %>
+
       </ul>
     </div>
   </nav>
