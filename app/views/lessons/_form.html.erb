@@ -1,0 +1,17 @@
+<%= form_for [@teacher, @lesson] do |f| %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, required: true %>
+
+  <br />
+  <%= f.label :feedback %>
+  <%= f.text_field :feedback %>
+
+  <br />
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <br />
+  <%= f.submit %>
+  
+<% end %>
