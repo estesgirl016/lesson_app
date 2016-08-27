@@ -3,8 +3,8 @@
 <% if @lessons.any? %>
   <!-- loop the lessons and display them -->
   <ul>
-    <% @lessons.each do |car| %>
-      <li class='car-info-text'> <%= car.info %> - <%= link_to 'Show', person_car_path(@person, car) %> </li>
+    <% @lessons.each do |user_id| %>
+      <!-- <li class='lesson-info-text'> <%= lesson.info %> - <%= link_to 'Show', lessons(@user_id, lesson) %> </li> -->
     <% end %>
   </ul>
 <% else %>
