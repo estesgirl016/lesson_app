@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160827155030) do
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.integer  "age"
-    t.boolean  "role",                                null: false
+    t.boolean  "role"
     t.string   "instrument"
     t.string   "status"
     t.text     "notes"
